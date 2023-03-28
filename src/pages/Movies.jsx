@@ -1,18 +1,12 @@
-import { Link } from "react-router-dom";
+import SearchBox from "components/SearchBox";
+import MoviesList from "components/MoviesList";
 const Movies = () => {
-    return (
-      <main>
-        <form>
-          <input type="text" />
-          <button>Search</button>
-        </form>
-        <ul>
-          <li>
-            <Link to="/movies/:movieId">film</Link>
-          </li>
-        </ul>
-      </main>
-    );
-}
+  return (
+    <main>
+      <SearchBox />
+      <MoviesList />
+    </main>
+  );
+};
 
 export default Movies;
