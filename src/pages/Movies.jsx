@@ -18,7 +18,7 @@ const Movies = () => {
     };
     getMovieInput(query);
   }, [query]);
-   console.log(movies)
+  //  console.log(movies)
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
