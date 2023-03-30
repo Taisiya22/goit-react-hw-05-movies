@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import MoviesList from 'components/MoviesList';
+import MoviesList from 'components/MovieList/MoviesList';
 import { getSearchMovie } from 'components/services/api';
 import { useSearchParams } from 'react-router-dom';
 const Movies = () => {
@@ -12,8 +12,7 @@ const Movies = () => {
     const getMovieInput = async search => {
       try {
         const responce = await getSearchMovie(search);
-        setMovies(responce.results); 
-        
+        setMovies(responce.results);
       } catch (error) {}
     };
     getMovieInput(query);
@@ -25,7 +24,7 @@ const Movies = () => {
     setSearchParams({ query: form.elements.query.value });
     form.reset();
   };
-  
+
   return (
     <main>
       <form onSubmit={handleSubmit}>

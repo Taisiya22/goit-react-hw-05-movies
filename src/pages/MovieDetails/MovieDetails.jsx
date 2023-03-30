@@ -1,5 +1,12 @@
-import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
+// import defaultImg from '../components/images/defaultImg.png';
+import { useEffect, useState, Suspense } from 'react';
+import {
+  Link,
+  Outlet,
+  useParams,
+  useLocation,
+  NavLink,
+} from 'react-router-dom';
 import { getMovieById } from 'components/services/api';
 
 const MovieDetails = () => {
@@ -7,8 +14,8 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
   const backLinkLocation = location.state?.from ?? '/';
-  // console.log(location.state);
-  
+
+
   useEffect(() => {
     const getMovieDetails = async movieId => {
       try {
@@ -19,11 +26,12 @@ const MovieDetails = () => {
     };
     getMovieDetails(movieId);
   }, [movieId]);
-  // console.log(movie.genres)
-  
+  console.log(movie);
+
   return (
     <main>
       <Link to={backLinkLocation}>Go to back</Link>
+
       <div>
         <h2>{movie.title}</h2>
         <img
@@ -45,13 +53,15 @@ const MovieDetails = () => {
       <p>Additional information</p>
       <ul>
         <li>
-          <Link to={`/movies/${movie.id}/cast`}>Cast</Link>
+          <NavLink to={`/movies/${movie.id}/cast`}>Cast</NavLink>
         </li>
         <li>
-          <Link to={`/movies/${movie.id}/reviews`}>Reviews</Link>
+          <NavLink to={`/movies/${movie.id}/reviews`}>Reviews</NavLink>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </main>
   );
 };
