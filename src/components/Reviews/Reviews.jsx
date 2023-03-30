@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+ import Notiflix from 'notiflix';
 import { getMovieRewievs } from '../services/api';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
+  const [, setError] = useState(null);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -12,7 +14,13 @@ const Reviews = () => {
         const responce = await getMovieRewievs(movieId);
         console.log(responce.results);
         setReviews(responce.results);
-      } catch (error) {}
+      } catch (error) {
+        setError(error);
+        Notiflix.Notify.failure(
+          `Whoops, something went wrong: ${error.message}`
+        );
+
+      }
     };
 
     getReviews(movieId);

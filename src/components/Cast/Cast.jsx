@@ -1,15 +1,28 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+import Notiflix from 'notiflix';
 import { getMovieCredits } from '../services/api';
 import defaultImg from '../images/defaultImg.png';
+
 const Cast = () => {
   const [actor, setActor] = useState([]);
+   const [, setError] = useState(null);
   const { movieId } = useParams();
   useEffect(() => {
     const getActorName = async movieId => {
-      const responce = await getMovieCredits(movieId);
-      setActor(responce.cast);
-      // console.log(responce.cast);
+      try {
+        const responce = await getMovieCredits(movieId);
+        setActor(responce.cast);
+        // console.log(responce.cast);
+      } catch (error) {
+        setError(error);
+        Notiflix.Notify.failure(
+          `Whoops, something went wrong: ${error.message}`
+        );
+
+      }
+      
     };
     getActorName(movieId);
   }, [movieId]);
