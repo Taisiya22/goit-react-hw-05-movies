@@ -4,6 +4,8 @@ import Notiflix from 'notiflix';
 import MoviesList from 'components/MovieList/MoviesList';
 import { getSearchMovie } from 'components/services/api';
 import { useSearchParams } from 'react-router-dom';
+
+
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState(null);
@@ -41,7 +43,7 @@ const Movies = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
-    setSearchParams({ query: form.elements.query.value.trim() });
+    setSearchParams({ query: form.elements.query.value.trim()});
     form.reset();
   };
 

@@ -1,7 +1,7 @@
-import defaultImg from '../empty.png';
+// import defaultImg from '../empty.png';
 import { useEffect, useState, Suspense, useRef } from 'react';
 import Notiflix from 'notiflix';
-import css from './MovieDetails.module.css';
+// import css from './MovieDetails.module.css';
 import {
   Link,
   Outlet,
@@ -42,39 +42,44 @@ const MovieDetails = () => {
   return (
     <main>
       <Link to={backLinkLocation}>Go to back</Link>
-      
-      {detailInfo.current ? (
-        <>
-          <div>
-            <h2>{movie.title}</h2>
-            <img
-              src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-              alt={movie.title}
-            />
-            <p>User Score:{movie.runtime}%</p>
-            <h3>Overview</h3>
-            <p>{movie.overview}</p>
-            <h3>Genres</h3>
-            <p>
-              {movie?.genres
-                ?.map(gen => {
-                  return gen.name;
-                })
-                .join(' ')}
-            </p>
-          </div>
-          <p>Additional information</p>
-          <ul>
-            <li>
-              <NavLink to={`/movies/${movie.id}/cast`}>Cast</NavLink>
-            </li>
-            <li>
-              <NavLink to={`/movies/${movie.id}/reviews`}>Reviews</NavLink>
-            </li>
-          </ul>
-        </>
-      ) : <img className={css.defaultImg } src={defaultImg} alt="not found"  />
-       
+
+      {
+        detailInfo.current ? (
+          <>
+            <div>
+              <h2>
+                {movie.title} ({movie.release_date})
+              </h2>
+              <img
+                src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                alt={movie.title}
+              />
+              <p>User Score: {Math.round(movie.vote_average * 10)}%</p>
+              <h3>Overview</h3>
+              <p>{movie.overview}</p>
+              <h3>Genres</h3>
+              <p>
+                {movie?.genres
+                  ?.map(gen => {
+                    return gen.name;
+                  })
+                  .join(' ')}
+              </p>
+            </div>
+            <h4>Additional information</h4>
+            <ul>
+              <li>
+                <NavLink  to={`/movies/${movie.id}/cast`}>Cast</NavLink>
+              </li>
+              <li>
+                <NavLink to={`/movies/${movie.id}/reviews`}>Reviews</NavLink>
+              </li>
+            </ul>
+          </>
+        ) : (
+          <p>Not found page</p>
+        )
+        // <img className={css.defaultImg} src={defaultImg} alt="not found" />
       }
 
       <Suspense fallback={<div>Loading...</div>}>

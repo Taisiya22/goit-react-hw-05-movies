@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { SharedLayots } from './SharedLayots';
+import { SharedLayots } from './SharedLayots/SharedLayots';
 // import Home from "pages/Home";
 // import Movies from "pages/Movies";
 // import MovieDetails from "pages/MovieDetails";
