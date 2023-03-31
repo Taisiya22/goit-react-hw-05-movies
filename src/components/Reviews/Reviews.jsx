@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
- import Notiflix from 'notiflix';
+import Notiflix from 'notiflix';
 import { getMovieRewievs } from '../services/api';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [, setError] = useState(null);
   const { movieId } = useParams();
- 
+
   useEffect(() => {
     const getReviews = async movieId => {
       try {
@@ -19,7 +19,6 @@ const Reviews = () => {
         Notiflix.Notify.failure(
           `Whoops, something went wrong: ${error.message}`
         );
-
       }
     };
 

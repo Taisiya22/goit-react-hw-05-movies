@@ -2,6 +2,7 @@
 import { useEffect, useState, Suspense, useRef } from 'react';
 import Notiflix from 'notiflix';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
+
 import css from './MovieDetails.module.css';
 import {
   Link,
@@ -11,6 +12,19 @@ import {
   NavLink,
 } from 'react-router-dom';
 import { getMovieById } from 'components/services/api';
+
+import styled from 'styled-components';
+
+
+const StyledLink = styled(NavLink)`
+  font-size: large;
+  font-weight: bold;
+  color: #212121;
+  text-decoration: none;
+  &.active {
+    color: skyblue;
+  }
+`;
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
@@ -71,13 +85,15 @@ const MovieDetails = () => {
                   .join(' ')}
               </p>
             </div>
-            <h4>Additional information</h4>
-            <ul>
-              <li>
-                <NavLink to={`/movies/${movie.id}/cast`}>Cast</NavLink>
+            <h4 className={css.title }>Additional information</h4>
+            <ul className={css.listLink}>
+              <li key={movie.id}>
+                <StyledLink to={`/movies/${movie.id}/cast`}>Cast</StyledLink>
               </li>
-              <li>
-                <NavLink to={`/movies/${movie.id}/reviews`}>Reviews</NavLink>
+              <li key={movie.vote_average}>
+                <StyledLink to={`/movies/${movie.id}/reviews`}>
+                  Reviews
+                </StyledLink>
               </li>
             </ul>
           </>

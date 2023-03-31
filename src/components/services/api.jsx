@@ -34,7 +34,6 @@ async function getMovieRewievs(id) {
   return res.data;
 }
 
-
 export {
   getTrendingMovies,
   getSearchMovie,

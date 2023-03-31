@@ -1,9 +1,9 @@
-import { NavLink, Outlet } from "react-router-dom";
-import { Suspense } from "react";
+import { NavLink, Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 // import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import css from './SharedLayots.module.css';
 import styled from 'styled-components';
-import logo from '../images/logo.png'
+import logo from '../images/logo.png';
 
 const StyledLink = styled(NavLink)`
   font-size: xx-large;
@@ -15,7 +15,7 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export const SharedLayots = () => {
+ const SharedLayots = () => {
   return (
     <div>
       <header className={css.navBar}>
@@ -34,8 +34,6 @@ export const SharedLayots = () => {
       </Suspense>
     </div>
   );
-}
+};
 
-
-
-//  export default SharedLayots;
+ export default SharedLayots;

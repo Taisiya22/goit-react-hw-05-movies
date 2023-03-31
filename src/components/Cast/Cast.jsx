@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
 import Notiflix from 'notiflix';
 import { getMovieCredits } from '../services/api';
 import defaultImg from '../images/defaultImg.png';
@@ -8,7 +7,7 @@ import css from './Cast.module.css';
 
 const Cast = () => {
   const [actor, setActor] = useState([]);
-   const [, setError] = useState(null);
+  const [, setError] = useState(null);
   const { movieId } = useParams();
   useEffect(() => {
     const getActorName = async movieId => {
@@ -21,9 +20,7 @@ const Cast = () => {
         Notiflix.Notify.failure(
           `Whoops, something went wrong: ${error.message}`
         );
-
       }
-      
     };
     getActorName(movieId);
   }, [movieId]);
@@ -33,8 +30,7 @@ const Cast = () => {
       {actor.map(({ name, character, id, profile_path }) => (
         <li key={id}>
           <img
-            width={200}
-            height={300}
+            className={css.imgCard}
             src={
               profile_path
                 ? `https://image.tmdb.org/t/p/w200/${profile_path}`
@@ -43,10 +39,7 @@ const Cast = () => {
             alt={name}
           />
           <p className={css.titleCard}>{name}</p>
-          <p className={css.titleCard}>
-         
-           Character: {character}
-          </p>
+          <p className={css.titleCard}>Character: {character}</p>
         </li>
       ))}
     </ul>

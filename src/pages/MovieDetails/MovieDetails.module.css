@@ -16,3 +16,14 @@
 .text{
 margin: 10px;
 }
+
+.listLink{
+    display: flex;
+    gap: 10px;
+    list-style: none;
+
+}
+
+.title{
+    margin-left: 20px;
+}
