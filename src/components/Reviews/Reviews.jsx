@@ -7,7 +7,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [, setError] = useState(null);
   const { movieId } = useParams();
-
+ 
   useEffect(() => {
     const getReviews = async movieId => {
       try {
