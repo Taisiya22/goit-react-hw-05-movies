@@ -10,7 +10,7 @@ const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: white;
   &.active {
-    color: orangered;
+    color: yellow;
   }
 `;
 

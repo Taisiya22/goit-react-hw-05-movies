@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import Notiflix from 'notiflix';
-
+import { ImSearch } from 'react-icons/im';
 import MoviesList from 'components/MovieList/MoviesList';
 import { getSearchMovie } from 'components/services/api';
 import { useSearchParams } from 'react-router-dom';
-
+import css from './Movie.module.css';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -49,9 +49,11 @@ const Movies = () => {
 
   return (
     <main>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="query" />
-        <button type="submit">Search</button>
+      <form onSubmit={handleSubmit} className={css.searchForm}>
+        <input className={css.searchFormIinput} type="text" name="query" />
+        <button className={css.searchFormBtn} type="submit">
+          <ImSearch style={{ marginRight: 8 }} />
+        </button>
       </form>
       {movies && <MoviesList movies={movies} />}
     </main>

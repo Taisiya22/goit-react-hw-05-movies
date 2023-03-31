@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import Notiflix from 'notiflix';
 import { getMovieCredits } from '../services/api';
 import defaultImg from '../images/defaultImg.png';
+import css from './Cast.module.css';
 
 const Cast = () => {
   const [actor, setActor] = useState([]);
@@ -28,20 +29,24 @@ const Cast = () => {
   }, [movieId]);
   // console.log(actor)
   return (
-    <ul>
+    <ul className={css.list}>
       {actor.map(({ name, character, id, profile_path }) => (
         <li key={id}>
           <img
             width={200}
+            height={300}
             src={
               profile_path
-                ? `https://image.tmdb.org/t/p/w200${profile_path}`
+                ? `https://image.tmdb.org/t/p/w200/${profile_path}`
                 : defaultImg
             }
             alt={name}
           />
-          <p>{name}</p>
-          <p>Character: {character}</p>
+          <p className={css.titleCard}>{name}</p>
+          <p className={css.titleCard}>
+         
+           Character: {character}
+          </p>
         </li>
       ))}
     </ul>

@@ -1,3 +1,18 @@
-.defaultImg {
-    width:300px;
+
+
+.wrapper {
+    /* display: flex;
+        gap: 40px;
+        padding: 20px; */
+    margin-left: 20px;
+    
+}
+ .link{
+   
+    text-decoration: none;
+    color: #212121;
+    font-size: 20px;
+ }
+.text{
+margin: 10px;
 }

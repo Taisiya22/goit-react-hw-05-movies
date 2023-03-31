@@ -1,7 +1,8 @@
 // import defaultImg from '../empty.png';
 import { useEffect, useState, Suspense, useRef } from 'react';
 import Notiflix from 'notiflix';
-// import css from './MovieDetails.module.css';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
+import css from './MovieDetails.module.css';
 import {
   Link,
   Outlet,
@@ -41,23 +42,27 @@ const MovieDetails = () => {
 
   return (
     <main>
-      <Link to={backLinkLocation}>Go to back</Link>
+      <p className={css.text}>
+        <Link to={backLinkLocation} className={css.link}>
+          <AiOutlineArrowLeft /> Go to back
+        </Link>
+      </p>
 
       {
         detailInfo.current ? (
           <>
-            <div>
-              <h2>
-                {movie.title} ({movie.release_date})
-              </h2>
+            <div className={css.wrapper}>
               <img
                 src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                 alt={movie.title}
               />
-              <p>User Score: {Math.round(movie.vote_average * 10)}%</p>
-              <h3>Overview</h3>
+              <h2>
+                {movie.title} ({movie.release_date.slice(0, 4)})
+              </h2>
+              <h4>User Score: {Math.round(movie.vote_average * 10)}%</h4>
+              <h4>Overview</h4>
               <p>{movie.overview}</p>
-              <h3>Genres</h3>
+              <h4>Genres</h4>
               <p>
                 {movie?.genres
                   ?.map(gen => {
@@ -69,7 +74,7 @@ const MovieDetails = () => {
             <h4>Additional information</h4>
             <ul>
               <li>
-                <NavLink  to={`/movies/${movie.id}/cast`}>Cast</NavLink>
+                <NavLink to={`/movies/${movie.id}/cast`}>Cast</NavLink>
               </li>
               <li>
                 <NavLink to={`/movies/${movie.id}/reviews`}>Reviews</NavLink>
