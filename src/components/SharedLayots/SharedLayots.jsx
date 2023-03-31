@@ -15,7 +15,7 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
- const SharedLayots = () => {
+export const SharedLayots = () => {
   return (
     <div>
       <header className={css.navBar}>

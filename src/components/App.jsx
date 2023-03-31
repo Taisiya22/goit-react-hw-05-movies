@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-// import { SharedLayots } from './SharedLayots/SharedLayots';
+import { SharedLayots } from './SharedLayots/SharedLayots';
 // // import Home from "pages/Home";
 // import Movies from "pages/Movies";
 // import MovieDetails from "pages/MovieDetails";
@@ -8,7 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 
 // const MyComponent = lazy(() => import('path/to/MyComponent'));
-const SharedLayots = lazy(() => import('./SharedLayots/SharedLayots'));
+// const SharedLayots = lazy(() => import('./SharedLayots/SharedLayots'));
 const Home = lazy(() => import('pages/Home/Home'));
 const Movies = lazy(() => import('pages/Movies/Movies'));
 const MovieDetails = lazy(() => import('pages/MovieDetails/MovieDetails'));
