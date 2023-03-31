@@ -1,29 +1,23 @@
-
-
 .wrapper {
-    display: flex;
-        gap: 10px;
-       margin-left: 20px;
-   
-    
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
 }
- .link{
-   
-    text-decoration: none;
-    color: #212121;
-    font-size: 20px;
- }
-.text{
-margin: 10px;
+.link {
+  text-decoration: none;
+  color: #212121;
+  font-size: 20px;
+}
+.text {
+  margin: 10px;
 }
 
-.listLink{
-    display: flex;
-    gap: 10px;
-    list-style: none;
-
+.listLink {
+  display: flex;
+  gap: 10px;
+  list-style: none;
 }
 
-.title{
-    margin-left: 20px;
+.title {
+  margin-left: 20px;
 }
