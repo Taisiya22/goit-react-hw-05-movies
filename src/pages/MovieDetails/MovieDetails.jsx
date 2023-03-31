@@ -12,9 +12,7 @@ import {
   NavLink,
 } from 'react-router-dom';
 import { getMovieById } from 'components/services/api';
-
 import styled from 'styled-components';
-
 
 const StyledLink = styled(NavLink)`
   font-size: large;
@@ -62,14 +60,14 @@ const MovieDetails = () => {
         </Link>
       </p>
 
-      {
-        detailInfo.current ? (
-          <>
-            <div className={css.wrapper}>
-              <img
-                src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                alt={movie.title}
-              />
+      {detailInfo.current ? (
+        <>
+          <div className={css.wrapper}>
+            <img
+              src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+              alt={movie.title}
+            />
+            <div>
               <h2>
                 {movie.title} ({movie.release_date.slice(0, 4)})
               </h2>
@@ -85,23 +83,22 @@ const MovieDetails = () => {
                   .join(' ')}
               </p>
             </div>
-            <h4 className={css.title }>Additional information</h4>
-            <ul className={css.listLink}>
-              <li key={movie.id}>
-                <StyledLink to={`/movies/${movie.id}/cast`}>Cast</StyledLink>
-              </li>
-              <li key={movie.vote_average}>
-                <StyledLink to={`/movies/${movie.id}/reviews`}>
-                  Reviews
-                </StyledLink>
-              </li>
-            </ul>
-          </>
-        ) : (
-          <p>Not found page</p>
-        )
-        // <img className={css.defaultImg} src={defaultImg} alt="not found" />
-      }
+          </div>
+          <h4 className={css.title}>Additional information</h4>
+          <ul className={css.listLink}>
+            <li key={movie.id}>
+              <StyledLink to={`/movies/${movie.id}/cast`}>Cast</StyledLink>
+            </li>
+            <li key={movie.vote_average}>
+              <StyledLink to={`/movies/${movie.id}/reviews`}>
+                Reviews
+              </StyledLink>
+            </li>
+          </ul>
+        </>
+      ) : (
+        <p>Not found page</p>
+      )}
 
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />

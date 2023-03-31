@@ -7,8 +7,6 @@ import { SharedLayots } from './SharedLayots/SharedLayots';
 // import Reviews from "./Reviews";
 import { lazy } from 'react';
 
-// const MyComponent = lazy(() => import('path/to/MyComponent'));
-// const SharedLayots = lazy(() => import('./SharedLayots/SharedLayots'));
 const Home = lazy(() => import('pages/Home/Home'));
 const Movies = lazy(() => import('pages/Movies/Movies'));
 const MovieDetails = lazy(() => import('pages/MovieDetails/MovieDetails'));
