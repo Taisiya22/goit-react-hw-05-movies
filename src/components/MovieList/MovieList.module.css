@@ -8,7 +8,7 @@
   color: #212121;
 }
 .item {
-  width: 500px;
+  max-width: 500px;
   border: 1px solid grey;
   border-radius: 10px;
   margin-bottom: 8px;
