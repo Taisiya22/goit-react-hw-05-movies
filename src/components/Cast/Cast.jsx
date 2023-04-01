@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Notiflix from 'notiflix';
-import { getMovieCredits } from '../services/api';
-import defaultImg from '../images/defaultImg.png';
+import { getMovieCredits } from '../../services/api';
+import defaultImg from 'images/defaultImg.png';
 import css from './Cast.module.css';
 
 const Cast = () => {

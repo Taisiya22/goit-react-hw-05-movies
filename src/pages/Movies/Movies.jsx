@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Notiflix from 'notiflix';
 import { ImSearch } from 'react-icons/im';
 import MoviesList from 'components/MovieList/MoviesList';
-import { getSearchMovie } from 'components/services/api';
+import { getSearchMovie } from 'services/api';
 import { useSearchParams } from 'react-router-dom';
 import css from './Movie.module.css';
 
@@ -43,7 +43,7 @@ const Movies = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
-    setSearchParams({ query: form.elements.query.value.trim()});
+    setSearchParams({ query: form.elements.query.value.trim() });
     form.reset();
   };
 

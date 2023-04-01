@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Notiflix from 'notiflix';
-import { getTrendingMovies } from 'components/services/api';
+import { getTrendingMovies } from 'services/api';
 import MoviesList from 'components/MovieList/MoviesList';
 import css from './Home.module.css';
 
@@ -19,14 +19,13 @@ const Home = () => {
         Notiflix.Notify.failure(
           `Whoops, something went wrong: ${error.message}`
         );
-
       }
     };
     getMovie();
   }, []);
   return (
     <main>
-      <h2 className={css.title }>Trending today</h2>
+      <h2 className={css.title}>Trending today</h2>
       <MoviesList movies={movies} />
     </main>
   );

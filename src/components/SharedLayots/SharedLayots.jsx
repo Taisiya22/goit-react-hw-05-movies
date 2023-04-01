@@ -2,30 +2,19 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 // import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import css from './SharedLayots.module.css';
-import styled from 'styled-components';
-import logo from '../images/logo.png';
-
-const StyledLink = styled(NavLink)`
-  font-size: xx-large;
-  color: white;
-  text-decoration: none;
-  color: white;
-  &.active {
-    color: yellow;
-  }
-`;
+import logo from 'images/logo.png';
 
 export const SharedLayots = () => {
   return (
     <div>
       <header className={css.navBar}>
         <nav className={css.nav}>
-          <StyledLink className={css.navLink} to="/">
+          <NavLink className={css.navLink} to="/">
             Home
-          </StyledLink>
-          <StyledLink className={css.navLink} to="/movies">
+          </NavLink>
+          <NavLink className={css.navLink} to="/movies">
             Movies
-          </StyledLink>
+          </NavLink>
         </nav>
         <img width={70} height={70} src={logo} alt="" />
       </header>
@@ -36,4 +25,4 @@ export const SharedLayots = () => {
   );
 };
 
- export default SharedLayots;
+export default SharedLayots;

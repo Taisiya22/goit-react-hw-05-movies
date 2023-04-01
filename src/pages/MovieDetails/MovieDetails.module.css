@@ -21,3 +21,11 @@
 .title {
   margin-left: 20px;
 }
+
+.linkNav{
+  font-size: large;
+  font-weight: bold;
+  color: #212121;
+  text-decoration: none;
+}
+
